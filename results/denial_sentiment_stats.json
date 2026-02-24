@@ -1,0 +1,18 @@
+{
+  "total_tweets": 5601,
+  "counts": {
+    "NEG": 3998,
+    "NEU": 1469,
+    "POS": 134
+  },
+  "percentages": {
+    "NEG": 71.38,
+    "NEU": 26.23,
+    "POS": 2.39
+  },
+  "avg_score": {
+    "NEG": 0.7694,
+    "NEU": 0.6443,
+    "POS": 0.7065
+  }
+}
