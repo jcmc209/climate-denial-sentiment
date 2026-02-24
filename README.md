@@ -21,15 +21,19 @@ pip install -r requirements.txt
 
 ---
 
-## Preparar los datos
+## Datos
 
-El repositorio incluye `train.csv` y `test.csv`. Para generar el archivo combinado:
+El análisis requiere un CSV con tweets. Opciones:
 
-```bash
-python scripts/combine_data.py
-```
+1. **CSV propio**: coloca tu archivo en `data/` con al menos la columna `text`.
 
-Esto crea `data/tweets_combinado.csv` a partir de los datos originales.
+2. **Si tienes train.csv y test.csv**: ejecuta el script para combinarlos:
+   ```bash
+   python scripts/combine_data.py
+   ```
+   Esto genera `data/tweets_combinado.csv` (necesario que existan `data/train.csv` y `data/test.csv` con columna `message`).
+
+El archivo `tweets_combinado.csv` no se sube a Git; cada usuario debe generarlo o usar su propio dataset.
 
 ---
 
@@ -41,16 +45,22 @@ python main.py --input data/tweets_combinado.csv
 
 ### Argumentos
 
-| Argumento    | Descripción                 |
-|-------------|-----------------------------|
-| `--input`   | Ruta al CSV de entrada     |
-| `--no-charts` | Omitir generación de gráficos |
+| Argumento     | Descripción                    |
+|---------------|--------------------------------|
+| `--input`     | Ruta al CSV de entrada         |
+| `--no-charts` | Omitir generación de gráficos  |
 
 ---
 
 ## Formato de entrada
 
-El CSV debe tener al menos la columna `text`. El script `combine_data.py` genera un archivo con `text`, `date` y `evento`.
+El CSV debe tener al menos la columna `text`:
+
+```csv
+text
+"Climate change is a hoax invented by the Chinese"
+"I can't believe people still deny global warming"
+```
 
 ---
 
@@ -60,15 +70,15 @@ Los resultados se guardan en `results/`:
 
 ```
 results/
-├── denial_sentiment.csv          # tweets clasificados
+├── denial_sentiment.csv          # tweets clasificados (text, sentiment, score)
 ├── denial_sentiment_stats.json   # estadísticas
 └── charts/
-    ├── sentiment_bars.png
-    ├── sentiment_pie.png
-    ├── confidence_histogram.png
+    ├── sentiment_bars.png       # distribución POS/NEU/NEG
+    ├── sentiment_pie.png        # proporciones
+    ├── confidence_histogram.png  # confianza del modelo
     ├── wordcloud.png
-    ├── top_keywords.png
-    └── top_examples.txt
+    ├── top_keywords.png         # palabras más frecuentes
+    └── top_examples.txt         # ejemplos por sentimiento
 ```
 
 ---
@@ -78,21 +88,26 @@ results/
 ```
 climate_sentiment/
 ├── data/
-│   ├── train.csv              # dataset original (train)
-│   ├── test.csv               # dataset original (test)
-│   └── tweets_combinado.csv   # generado por combine_data.py
+│   └── tweets_combinado.csv   # CSV de entrada (no en Git; añadir o generar)
 ├── scripts/
-│   └── combine_data.py        # combina train + test
+│   └── combine_data.py        # opcional: combina train.csv + test.csv
+├── results/                   # resultados generados
+│   ├── denial_sentiment.csv
+│   ├── denial_sentiment_stats.json
+│   └── charts/
 ├── config.py                  # palabras clave de negacionismo
 ├── main.py                    # pipeline principal
-├── utils.py                   # utilidades
+├── utils.py                   # carga, filtrado y exportación
 ├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
-### Archivos que no se suben a Git
+### Excluidos en .gitignore
 
-Según `.gitignore`: `venv/`, `results/`, `data/tweets_combinado.csv`, caché de modelos.
+- `venv/` — entorno virtual
+- `data/tweets_combinado.csv` — datos generados
+- `__pycache__/`, `.cache/` — caché de Python y modelos
 
 ---
 
