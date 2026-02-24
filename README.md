@@ -1,6 +1,6 @@
 # Sentiment Analysis of Climate Change Denialism on Twitter
 
-Análisis de sentimiento aplicado a tweets en inglés sobre negacionismo climático. Utiliza el modelo **CardiffNLP Twitter-RoBERTa** para clasificar cada tweet como positivo (POS), negativo (NEG) o neutro (NEU). Proyecto del TFM de Jose Carlos Monescillo.
+Análisis de sentimiento aplicado a tweets en inglés sobre negacionismo climático. Utiliza el modelo **CardiffNLP Twitter-RoBERTa** para clasificar cada tweet como positivo (POS), negativo (NEG) o neutro (NEU). Jose Carlos Monescillo.
 
 ---
 
