@@ -3,9 +3,6 @@ venv/
 env/
 .venv/
 
-# Resultados generados (CSV, gráficos, JSON)
-results/
-
 # Cache de Python
 __pycache__/
 *.py[cod]
