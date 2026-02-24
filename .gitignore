@@ -1,0 +1,35 @@
+# Virtual environment (mucho peso)
+venv/
+env/
+.venv/
+
+# Resultados generados (CSV, gráficos, JSON)
+results/
+
+# Cache de Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+
+# Modelos de Hugging Face (se descargan automáticamente)
+.cache/
+*.bin
+*.safetensors
+*.pt
+*.pth
+transformers_cache/
+
+# Datos generados (combinación de train+test)
+data/tweets_combinado.csv
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
