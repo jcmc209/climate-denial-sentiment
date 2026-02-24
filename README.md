@@ -106,4 +106,4 @@ Según `.gitignore`: `venv/`, `results/`, `data/tweets_combinado.csv`, caché de
 
 ## Autor
 
-**Jose Carlos Monescillo** — TFM
+**Jose Carlos Monescillo**
